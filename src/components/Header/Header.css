@@ -1,0 +1,16 @@
+nav{
+    background-color: #1C2B35;
+    
+}
+.header{
+    height:80px;
+    max-width: 1240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 100px;
+}
+.menu-items a{
+    color:white;
+    margin-right: 30px;
+}
