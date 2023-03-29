@@ -17,7 +17,7 @@ const Shop = ()=>{
     const handlerAdToCart = product =>{
         const newCart = [...cart,product]
         setCart(newCart)
-       console.log(cart)
+      
     }
 
     return(
