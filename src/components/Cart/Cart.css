@@ -26,3 +26,17 @@
 .btn-cart-clear span {
     margin-right: 10px;
 }
+
+.btn-review {
+
+    background: #FF9900;
+    border-radius: 4px;
+    width: 90%;
+    margin: 16px auto;
+    color: white;
+}
+
+.checkout-icon,
+.review-icon {
+    margin-left: 10px;
+}
