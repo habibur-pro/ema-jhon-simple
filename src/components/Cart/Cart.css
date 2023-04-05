@@ -1,14 +1,28 @@
-.cart{
+.cart {
     background: rgba(255, 153, 0, 0.3);
-   padding-left: 20px;
-   padding-top:10px;
-   padding-bottom: 50px;
-   position: sticky;
-   top:0;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    position: sticky;
+    top: 0;
 }
-.cart p{
-    margin:20px 0 ;
+
+.cart p {
+    margin: 20px 0;
 }
-.cart-title{
+
+.cart-title {
     text-align: center;
+}
+
+.btn-cart-clear {
+    width: 90%;
+    background: #FF3030;
+    border-radius: 4px;
+    color: white;
+    font-size: 17px;
+}
+
+.btn-cart-clear span {
+    margin-right: 10px;
 }
