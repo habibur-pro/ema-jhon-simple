@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import logo from '../../images/Logo.svg'
 import { Link } from 'react-router-dom';
@@ -6,13 +6,13 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const Header = () => {
-  const [loginError, SetLoginError] = useState('')
+
   const { user, logOut } = useContext(AuthContext)
 
   const handelLogOut = () => {
     logOut()
-      .then(() => { })
-      .catch(error => SetLoginError(error.message))
+      .then(result => { })
+      .catch(error => console(error.message))
   }
 
   return (

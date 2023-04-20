@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
 import google from '../../../public/google.png'
@@ -6,6 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
 
+    const [loginError, SetLoginError] = useState('')
     const { signIn } = useContext(AuthContext)
 
 
@@ -20,7 +21,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
             })
-            .catch(error => console.log(error))
+            .catch(error => SetLoginError(error.message))
     }
 
     return (
@@ -51,6 +52,10 @@ const Login = () => {
                     <input className='submit-btn' type="submit" value="Login" />
                 </form>
                 <p className='redirect-link'>New to Ema Jhon? <Link to='/signup'>Create and account</Link></p>
+
+                {
+                    loginError && <p className='error-text'>{error}</p>
+                }
                 <button className='submit-btn google-btn' type="submit" value="Login">
                     <img src={google} alt="" />
                     Continew With Google
