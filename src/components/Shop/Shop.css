@@ -1,11 +1,12 @@
-.shop-container{
+.shop-container {
     display: grid;
-  
+
     grid-template-columns: 4fr 1fr;
 }
-.product-container{
+
+.product-container {
     padding: 80px;
     display: grid;
-    gap:45px;
+    gap: 45px;
     grid-template-columns: 1fr 1fr 1fr;
 }

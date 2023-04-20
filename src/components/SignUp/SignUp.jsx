@@ -1,6 +1,9 @@
 import React from 'react';
 import './SignUp.css'
 import { Link } from 'react-router-dom';
+import google from '../../../public/google.png'
+
+
 const SignUp = () => {
     return (
         <div className='form-container'>
@@ -40,7 +43,10 @@ const SignUp = () => {
                     <input className='submit-btn' type="submit" value="SignUp" />
                 </form>
                 <p className='redirect-link'>Already have an account? <Link to='/login'>Login</Link></p>
-                <button className='submit-btn google-btn' type="submit" value="Login">Google</button>
+                <button className='submit-btn google-btn' type="submit" value="Login">
+                    <img src={google} alt="" />
+                    Continew With Google
+                </button>
             </div>
         </div>
     );

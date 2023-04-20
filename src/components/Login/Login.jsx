@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
+import google from '../../../public/google.png'
 
 const Login = () => {
     return (
@@ -31,7 +32,10 @@ const Login = () => {
                     <input className='submit-btn' type="submit" value="Login" />
                 </form>
                 <p className='redirect-link'>New to Ema Jhon? <Link to='/signup'>Create and account</Link></p>
-                <button className='submit-btn google-btn' type="submit" value="Login">Google</button>
+                <button className='submit-btn google-btn' type="submit" value="Login">
+                    <img src={google} alt="" />
+                    Continew With Google
+                </button>
             </div>
         </div>
     );
