@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
 import google from '../../../public/google.png'
+import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext)
+
+
+    const handelLogin = event => {
+        event.preventDefault()
+        const form = event.target
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className='form-container'>
             <div className='form-wraper'>
                 <h3 className='form-title'>Login</h3>
-                <form action="">
+                <form onSubmit={handelLogin} action="">
                     <div className='form-control'>
                         <label htmlFor="">Email</label>
                         <br />
                         <input
-                            type="text"
+                            type="email"
                             placeholder='Your email'
                             name='email'
                             required

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.css'
 import logo from '../../images/Logo.svg'
 import { Link } from 'react-router-dom';
@@ -6,8 +6,15 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const Header = () => {
-  const { user } = useContext(AuthContext)
-  console.log(user)
+  const [loginError, SetLoginError] = useState('')
+  const { user, logOut } = useContext(AuthContext)
+
+  const handelLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => SetLoginError(error.message))
+  }
+
   return (
     <nav className=''>
       <div className='header'>
@@ -16,7 +23,11 @@ const Header = () => {
           <Link to="/">Shop</Link>
           <Link to="order">Order</Link>
           <Link to="inventory">Manage Inventory</Link>
-          <Link to="login">Login</Link>
+          {
+            user ? <button className='btn-logout' onClick={handelLogOut}>Logout</button>
+              :
+              <Link to="login">Login</Link>
+          }
           <Link to="signup">SignUp</Link>
 
         </div>
