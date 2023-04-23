@@ -1,14 +1,19 @@
 import React, { useContext, useState } from 'react';
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../../public/google.png'
 import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
+    const [show, setShow] = useState(false)
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     const [loginError, SetLoginError] = useState('')
     const { signIn } = useContext(AuthContext)
-
+    console.log(location)
 
     const handelLogin = event => {
         event.preventDefault()
@@ -19,7 +24,10 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user)
+                const user = result.user;
+                console.log(user)
+                form.reset()
+                navigate(from, { replace: true })
             })
             .catch(error => SetLoginError(error.message))
     }
@@ -43,12 +51,15 @@ const Login = () => {
                         <label htmlFor="">Password</label>
                         <br />
                         <input
-                            type="password"
+                            type={show ? 'text' : "password"}
                             placeholder='Your email'
                             name='password'
                             required
                         />
                     </div>
+                    <p onClick={() => setShow(!show)}>
+                        {show ? 'Hide password' : 'show password'}
+                    </p>
                     <input className='submit-btn' type="submit" value="Login" />
                 </form>
                 <p className='redirect-link'>New to Ema Jhon? <Link to='/signup'>Create and account</Link></p>
